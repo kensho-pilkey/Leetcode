@@ -1,0 +1,40 @@
+Attemp 1: (Not Complete) 407 / 987 testcases passed
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if len(s) > 0:
+            pot = [s[0]]
+            currMax = 1
+            theMax = 1
+        else:
+            return 0
+        
+        for x in range(1, len(s)):
+            if s[x] in pot:
+                if currMax > theMax:
+                    theMax = currMax
+                pot = [s[x]]
+                currMax = 1
+            else:
+                currMax += 1
+                pot.append(s[x])
+                
+            if currMax > theMax:
+                theMax = currMax
+        return theMax
+
+Attempt 2:
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        pot = []
+        left = 0
+        maxLen = 0
+
+        for right in range(len(s)):
+            while s[right] in pot:
+                pot.remove(s[left])
+                left += 1
+            maxLen = max(maxLen, right - left + 1)
+            pot.append(s[right])
+        return maxLen
+
