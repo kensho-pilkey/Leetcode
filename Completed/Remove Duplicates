@@ -1,0 +1,13 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        index = 1
+        lastVal = 9999
+        clone = nums.copy()
+
+
+        for x in clone:
+            if lastVal == x:
+                nums.remove(x)
+            else:
+                lastVal = x
+        return len(nums)
