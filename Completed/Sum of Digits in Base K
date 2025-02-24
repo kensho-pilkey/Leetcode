@@ -1,0 +1,12 @@
+class Solution:
+    def sumBase(self, n: int, k: int) -> int:
+        total = 0
+        remainder = n
+        curr = n
+
+        while remainder > k:
+            total += curr // k
+            remainder = curr % k
+            curr = curr // k
+
+        return total + remainder
