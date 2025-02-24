@@ -23,7 +23,7 @@ class Solution:
                 theMax = currMax
         return theMax
 
-Attempt 2:
+Attempt 2: (Working)
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         pot = []
